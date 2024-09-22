@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/user');
+        const response = await axios.get('http://154.53.160.227:8080/user');
         setUsers(response.data);
       } catch (error) {
         console.error('Kullanıcılar alınamadı:', error);
@@ -20,11 +20,10 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  // Yeni kullanıcı eklemek için
   const addUser = async () => {
     try {
       const newUser = { name, description };
-      await axios.post('http://localhost:8080/user', newUser);
+      await axios.post('http://154.53.160.227:8080/user', newUser);
       setUsers([...users, newUser]);
       setName('');
       setDescription('');
